@@ -1,3 +1,4 @@
+var server = "tbd";
 var southWest = L.latLng(-41.29012931030752 - 200, 174.76792012621496 - 200);
 var northEast = L.latLng(-41.29012931030752 + 200, 174.76792012621496 + 200);
 var bounds = L.latLngBounds(southWest, northEast);
@@ -37,7 +38,7 @@ var sidebar1 = L.control.sidebar('sidebar', {
 }).addTo(map1);
 
 // Fetch the JSON from local file, parse through
-fetch('https://goodcarbonfarmmap.australiaeast.cloudapp.azure.com/pins', {
+fetch(server, {
   method: "GET",
 })
   .then(response => response.json())

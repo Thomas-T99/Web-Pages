@@ -1,4 +1,4 @@
-var serverName = 'https://goodcarbonfarmmap.australiaeast.cloudapp.azure.com/pins';
+var serverName = 'tbd';
 
 var southWest = L.latLng(-41.29012931030752 - 200, 174.76792012621496 - 200);
 var northEast = L.latLng(-41.29012931030752 + 200, 174.76792012621496 + 200);
