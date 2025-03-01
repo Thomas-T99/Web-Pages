@@ -37,7 +37,7 @@ var sidebar1 = L.control.sidebar('sidebar', {
 }).addTo(map1);
 
 // Fetch the JSON from local file, parse through
-fetch('https://mapdb-victest.australiaeast.cloudapp.azure.com/pins', {
+fetch('https://goodcarbonfarmmap.australiaeast.cloudapp.azure.com/pins', {
   method: "GET",
 })
   .then(response => response.json())
@@ -235,3 +235,34 @@ function updateMarkers() {
     }
   });
 }
+
+function toggleFilters() {
+  var dropdownContent = document.querySelector('.dropdown-content');
+  if (dropdownContent.style.display === 'block') {
+      dropdownContent.style.display = 'none';
+  } else {
+      dropdownContent.style.display = 'block';
+  }
+}
+
+function syncCheckboxes() {
+  const checkboxes = document.querySelectorAll('#checkboxes input[type="checkbox"]');
+  const dropdownCheckboxes = document.querySelectorAll('.dropdown-content input[type="checkbox"]');
+
+  checkboxes.forEach((checkbox, index) => {
+    dropdownCheckboxes[index].checked = checkbox.checked;
+  });
+
+  dropdownCheckboxes.forEach((checkbox, index) => {
+    checkbox.addEventListener('change', () => {
+      checkboxes[index].checked = checkbox.checked;
+      updateMarkers();
+    });
+  });
+}
+
+window.addEventListener('resize', function() {
+  syncCheckboxes();
+});
+
+syncCheckboxes();

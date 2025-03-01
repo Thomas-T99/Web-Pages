@@ -7,7 +7,8 @@
     <link rel="icon" type="image/x-icon" href="map.png">
     <link rel="stylesheet" href="style.css"/>
 
-    <!-- Leaflet Imports -->
+   <!-- All head data below here goes in page code injection in squarespace -->
+   <!-- Leaflet Imports -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
         crossorigin=""/>
@@ -34,44 +35,66 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.Default.css" />
     <script src="https://unpkg.com/leaflet.markercluster@1.3.0/dist/leaflet.markercluster.js"></script>
 
-    <script src="https://mutsuyuki.github.io/Leaflet.SmoothWheelZoom/SmoothWheelZoom.js"></script>
+	<!-- Smooth Scroll Import -->
+	<script src="https://mutsuyuki.github.io/Leaflet.SmoothWheelZoom/SmoothWheelZoom.js"></script>
 </head>
 
 <body>
-    <main>
-        <div id="plugin"> 
+        <main>
+        <div id="plugin" > 
             <div id="header-bar">
                 <div class="search-container">
-                    <input type="text" id="search-bar" placeholder="Search..." oninput="handleSearch()">
+                    <input type="text" id="search-bar" aria-label="Search bar, search for locations by typing a name" placeholder="Search..." oninput="handleSearch()">
                     <div id="search-results"></div>
                 </div>
                 <div class="filter-buttons">
-                    <label>
-                        <input type="checkbox" id="good-friend" onchange="updateMarkers()" checked>
-                        Good Friend
-                    </label>
-                    <label>
-                        <input type="checkbox" id="project" onchange="updateMarkers()" checked>
-                        Project
-                    </label>
-                    <label>
-                        <input type="checkbox" id="carbon-farmer" onchange="updateMarkers()" checked>
-                        Carbon Farmer
-                    </label>
-                    <label>
-                        <input type="checkbox" id="donor-grants" onchange="updateMarkers()" checked>
-                        Donor
-                    </label>
-                    <label>
-                        <input type="checkbox" id="store" onchange="updateMarkers()" checked>
-                        Store
-                    </label>
+                    <div id="checkboxes">
+                    <span id="filters-heading" hidden>Location filters</span>
+                    <div role="group" aria-labelledby="filters-heading">
+                        <ul>
+                        <li><label>
+                            <input type="checkbox" id="good-friend" role="checkbox" onchange="updateMarkers()" checked>
+                            Good Friend
+                        </label></li>
+                        <li><label>
+                            <input type="checkbox" id="project" role="checkbox" onchange="updateMarkers()" checked>
+                            Project
+                        </label></li>
+                        <li><label>
+                            <input type="checkbox" id="carbon-farmer" role="checkbox" onchange="updateMarkers()" checked>
+                            Carbon Farmer
+                        </label></li>
+                        <li><label>
+                            <input type="checkbox" id="donor-grants" role="checkbox" onchange="updateMarkers()" checked>
+                            Donor
+                        </label></li>
+                        <li><label>
+                            <input type="checkbox" id="store" role="checkbox" onchange="updateMarkers()" checked>
+                            Store
+                        </label></li>
+                        </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button onclick="toggleFilters()">Select Categories</button>
+                    <div class="dropdown-content">
+                        <label><input type="checkbox" id="good-friend" onchange="updateMarkers()" checked> Good Friend</label>
+                        <label><input type="checkbox" id="project" onchange="updateMarkers()" checked> Project</label>
+                        <label><input type="checkbox" id="carbon-farmer" onchange="updateMarkers()" checked> Carbon Farmer</label>
+                        <label><input type="checkbox" id="donor-grants" onchange="updateMarkers()" checked> Donor</label>
+                        <label><input type="checkbox" id="store" onchange="updateMarkers()" checked> Store</label>
+                    </div>
                 </div>
             </div>
-            <div class="map" id="map"></div>
-            <div id="sidebar"></div>
+            <span class="visually-hidden">Now interacting with pins on the Good Map</span>
+            <div class="map-wrapper">
+                <div class="map" id="map"></div>
+                <div id="sidebar"></div>
+            </div>
         </div>
     </main>
-    <script src="script.js"></script>
+    <script src="https://thegoodcarbongit.github.io/map-page//map-script.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/willmyethewebsiteguy/customBreakpoint@1/customBreakpoint.min.js"></script>
 </body>
 </html>

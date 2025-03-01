@@ -1,4 +1,4 @@
-var serverName = 'https://mapdb-victest.australiaeast.cloudapp.azure.com/pins';
+var serverName = 'https://goodcarbonfarmmap.australiaeast.cloudapp.azure.com/pins';
 
 var southWest = L.latLng(-41.29012931030752 - 200, 174.76792012621496 - 200);
 var northEast = L.latLng(-41.29012931030752 + 200, 174.76792012621496 + 200);
@@ -112,7 +112,7 @@ function openForm(feature) {
               redirect: "follow"
             };
             console.log(currentId);
-            fetch("https://mapdb-victest.australiaeast.cloudapp.azure.com/pins/"+currentId, requestOptions)
+            fetch(serverName + "/"+currentId, requestOptions)
                 .then(response => {
                     console.log(response);
                     delete locations[currentId];
@@ -193,7 +193,7 @@ function showFormEdit() {
     var form = document.getElementById('formcontents');
     var deleteBtn = document.getElementById('deleteBtn');
     removeErrorBorders()
-    form.style.display = 'block';
+    form.style.display = 'contents';
     document.getElementById('addingHeader').style.display = 'none';
     document.getElementById('editingHeader').style.display = 'block';
     deleteBtn.style.display = 'block';
@@ -208,7 +208,7 @@ function showFormAdd() {
     var deleteBtn = document.getElementById('deleteBtn');
     removeErrorBorders()
     currentId = null;
-    form.style.display = 'block';
+    form.style.display = 'contents';
     document.getElementById('addingHeader').style.display = 'block';
     document.getElementById('editingHeader').style.display = 'none';
     deleteBtn.style.display = 'none';
@@ -411,22 +411,22 @@ document.getElementById('submitBtn').addEventListener('click', function (e) {
                 headers: myHeaders,
                 body: raw,
                 redirect: 'follow'
-            }).catch(error => console.error("Error:", error));
-            //below code needs server to be updated so that POST returns data
-                // .then(response => response.json())
-                // .then(data => {
-                //     console.log("Success:", data);
-                //     const geoJson = convertSingleToGeoJson(data);
-                //     geoJson.features.forEach(function (feature) {
-                //         var id = feature.properties.id;
-                //         locations[id] = {
-                //             properties: feature.properties,
-                //             coordinates: [coordinates[1], coordinates[0]]
-                //         };
-                //     })
-                //     resetSearch();
-                // })
-            showFormReset(); // make if no error
+            }).then(data => {
+                    if(data.ok){
+                        var newProperties = {
+                            id: currentId,
+                            name: newname,
+                            category: type,
+                            description: description
+                        };
+                        locations[currentId] = {
+                            properties: newProperties,
+                            coordinates: [coords.lat, coords.lng]
+                        };
+                        showFormReset();
+                    }
+                })
+                .catch(error => console.error("Error:", error));
         }
         // Add check for confirmation and remove red borders if success
         // Update sidebar if successful

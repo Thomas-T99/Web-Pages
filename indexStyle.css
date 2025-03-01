@@ -1,38 +1,89 @@
+  
+  html, body {
+    height: 100%;
+ }
+  
+  html {
+    --sqs-edit-mode-breakpoint: 749px;
+  }
+  
+  main {
+    display: contents;
+  }
+  
+  
+  
+ .map-wrapper {
+    position: relative;
+   height: 100%;
+  }
+
 .map {
-    width: 820px;   
-    height: 400px; 
+    position: absolute;
+  top:0;
+  left:0;
+    height: 100%;
+    width: 100%;
 }
 
-#header-bar, .search-container, .filter-buttons {
+.search-container, .filter-buttons {
     display: flex;
     flex-direction: row;
-
 }
+  
+  #header-bar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: #E97B29;
+  }
 
 .filter-buttons {
-    gap: 45px;
-  width:100%;
-  background-color: #E97B29;
+    width:100%;
+    background-color: #E97B29;
+    display: flex;
+    vertical-align: middle;
+    justify-content: flex-end;
+  	gap: 10px;
+  	padding: 10px;
+}
+  
+.header-divider {
+  flex-grow: 1;
+}
+
+#plugin { 
+  position: relative;
+  padding-bottom: 0px !important;
+  padding-top: 0px !important;
+   /*margin: 0px auto;*/
+  height: 100%;
+    width: 100%;
   display: flex;
-  text-align: center;
-  vertical-align: middle;
-  padding-left: 120px;
+   flex-direction: column;
 }
-
-#header-bar {
-    justify-content: space-between;
-}
-
-#plugin {
-    width: 820px; 
-}
-
 
 .search-container {
-    position: relative;
+  position: relative;
+  padding: 10px;
+  border-radius: 20px;
+  border: solid #E97B29;
 }
-
-
+  
+  .container  {
+  padding: 0px !important;
+  margin: 0px auto;
+  display: contents;
+  padding-bottom: 0px !important;
+  padding-top: 0px !important;
+  }
+  
+#search-bar {
+    padding-left: 10px;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+  }
 
 .search-result-item {
     margin-bottom: 10px;
@@ -42,6 +93,7 @@
 
   .category {
     margin-bottom: 0px;
+	font-family: 'Space Mono', sans-serif;
   }
 
   .name {
@@ -56,9 +108,6 @@
     -webkit-box-orient: vertical;
     margin-bottom: 0px;
   }
-
-  
-
 
 .leaflet-control-container {
     display: flex !important;
@@ -81,4 +130,133 @@
 
 .leaflet-bottom {
     display: none;
+}
+
+ 
+.content-wrapper {
+	  padding-bottom: 20px !important;
+  padding-left: 50px !important;
+  padding-right: 50px !important;
+  }
+  
+  #plugin .filter-buttons label {
+  color: white;
+}
+    #block-yui_3_17_2_1_1737929825516_1898 {
+  padding-bottom : 0px !important;
+  padding-top : 0px !important;
+  margin: 0 !important; 
+  height: 100% !important; 
+  }
+  
+  .sqs-block-content {
+    height: 100%;
+  }
+
+  
+  .marker-cluster-small, .marker-cluster-medium, .marker-cluster-large {
+    background-color: transparent;
+  }
+  
+  .leaflet-control-zoom {
+    margin-top: 10px !important;
+  }
+  
+  .fe-block{
+   margin-bottom: 0px !important; 
+  }
+  
+ .code-block {
+	padding: 0 !important;
+}
+ 
+.dropdown {
+    display: none;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 100%;
+    z-index: 9999;
+}
+
+.dropdown-content label {
+    display: block;
+    margin-top: 10px;
+    margin-inline: 5px;
+    font-size: small;
+}
+  
+  /* ARIA content class */
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+  
+   ul {
+  		list-style-type: none;
+      	margin: 0;  
+    	padding: 0;
+	}
+  
+  li {
+    	display: inline;
+	}
+    
+  @media screen and (max-width:767px) {
+    #search-bar {
+  max-width: 150px;
+  }
+    .content-wrapper {
+  padding-top: 20px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  }
+div#gridThumbs {
+    padding-left: 0.5vw !important;
+    padding-right: 0.5vw !important;
+}
+    .filter-buttons {
+        display: none;
+    }
+
+    .dropdown {
+        display: inline-block;
+        position: relative;
+        z-index: 9999;
+    }
+
+    .dropdown-content {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        min-width: 100%;
+      	z-index: 9999;
+    }
+
+    .dropdown button {
+        display: block;
+        width: 100%;
+        padding: 8px;
+      	font-size: small;
+    }
+    
+    .leaflet-top {
+      z-index: 1000;
+    }
+    
+    .leaflet-sidebar {
+    width: 60% !important;
+}
+
 }

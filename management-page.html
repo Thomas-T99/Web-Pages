@@ -7,6 +7,7 @@
     <link rel="icon" type="image/x-icon" href="map.png">
     <link rel="stylesheet" href="style.css"/>
 
+    <!-- All header information from here down is injected into Squarespace page header code injection -->
     <!-- Leaflet Imports -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
@@ -50,34 +51,33 @@
         <div id="management-plugin"> 
             <div id="control-div">
                 <div id="search-container">
-                    <input id="search-bar" type="text" placeholder="Search.." oninput="handleSearch()">
+                    <input type="text" id="search-bar" placeholder="Search.." oninput="handleSearch()">
                 </div>
                 <div id="selection-container" class="selectiondiv">
                 </div>
                 <div id="addition-container"><button id="addbtn">Add New Location</button></div>
             </div>
             <div id="form-div">
-                <h1 id="editingHeader" style="display: none">Editing Good Friend</h1>
-                <h1 id="addingHeader" style="display: none">Adding Good Friend</h1>
+            <h1 id="editingHeader" style="display: none">Editing Good Friend</h1>
+            <h1 id="addingHeader" style="display: none">Adding Good Friend</h1>
                 <form id="formcontents">
-                    <label for="locationname">Name</label><br>
-                    <input type="text" id="locationname" name="locationname"><br>
-                    <label for="locationtype">Location Type</label><br>
+                    <label for="locationname">Name</label>
+                    <input type="text" id="locationname" name="locationname">
+                    <label for="locationtype">Location Type</label>
                     <select id="locationtype" name="locationtype">
                         <option value="Good Friend">Good Friend</option>
                         <option value="Project">Project</option>
                         <option value="Carbon Farmer">Carbon Farmer</option>
                         <option value="Donor">Donor</option>
                         <option value="Store">Store</option>
-                    </select><br>
-                    <label for="descriptionfield">Description</label><br>
-                    <textarea id="descriptionfield" name="descriptionfield"></textarea><br>
+                    </select>
+                    <label for="descriptionfield">Description</label>
+                    <textarea id="descriptionfield" name="descriptionfield"></textarea>
+                    <label for="map">Location</label>
                     <div id="plugin"> 
-                        <label for="map">Location</label><br>
                         <div class="map" id="map"></div>
                         <div id="sidebar"></div>
                     </div>
-                    <br>
                     <div id="buttons">
                         <div class="left-buttons">
                             <input id="submitBtn" type="submit" value="Submit">
@@ -89,6 +89,6 @@
             </div>
         </div>
     </main>
-    <script src="script.js"></script>
+    <script src="https://thegoodcarbongit.github.io/Map-management-page/management-page-script.js"></script>
 </body>
 </html>
