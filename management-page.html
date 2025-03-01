@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Management Page</title>
+    <link rel="icon" type="image/x-icon" href="map.png">
+    <link rel="stylesheet" href="style.css"/>
+
+    <!-- Leaflet Imports -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""></script>
+
+    <!-- Geocoder Import -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
+    <!-- FontAwesome Import -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+
+    <!-- Bootstrap Import -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+
+    <!-- Beautify Markers Imports -->
+    <script src="https://cdn.jsdelivr.net/gh/marslan390/BeautifyMarker/leaflet-beautify-marker-icon.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/marslan390/BeautifyMarker/leaflet-beautify-marker-icon.min.css"/>
+
+    <!-- Sidebar Imports -->
+    <script src=" https://cdn.jsdelivr.net/npm/leaflet-sidebar@0.2.4/src/L.Control.Sidebar.min.js "></script>
+    <link href=" https://cdn.jsdelivr.net/npm/leaflet-sidebar@0.2.4/src/L.Control.Sidebar.min.css " rel="stylesheet">
+
+    <!-- Marker Imports -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.Default.css" />
+    <script src="https://unpkg.com/leaflet.markercluster@1.3.0/dist/leaflet.markercluster.js"></script>
+
+    <script src="https://mutsuyuki.github.io/Leaflet.SmoothWheelZoom/SmoothWheelZoom.js"></script>
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+
+<body>
+    <main>
+        <div id="management-plugin"> 
+            <div id="control-div">
+                <div id="search-container">
+                    <input id="search-bar" type="text" placeholder="Search.." oninput="handleSearch()">
+                </div>
+                <div id="selection-container" class="selectiondiv">
+                </div>
+                <div id="addition-container"><button id="addbtn">Add New Location</button></div>
+            </div>
+            <div id="form-div">
+                <h1 id="editingHeader" style="display: none">Editing Good Friend</h1>
+                <h1 id="addingHeader" style="display: none">Adding Good Friend</h1>
+                <form id="formcontents">
+                    <label for="locationname">Name</label><br>
+                    <input type="text" id="locationname" name="locationname"><br>
+                    <label for="locationtype">Location Type</label><br>
+                    <select id="locationtype" name="locationtype">
+                        <option value="Good Friend">Good Friend</option>
+                        <option value="Project">Project</option>
+                        <option value="Carbon Farmer">Carbon Farmer</option>
+                        <option value="Donor">Donor</option>
+                        <option value="Store">Store</option>
+                    </select><br>
+                    <label for="descriptionfield">Description</label><br>
+                    <textarea id="descriptionfield" name="descriptionfield"></textarea><br>
+                    <div id="plugin"> 
+                        <label for="map">Location</label><br>
+                        <div class="map" id="map"></div>
+                        <div id="sidebar"></div>
+                    </div>
+                    <br>
+                    <div id="buttons">
+                        <div class="left-buttons">
+                            <input id="submitBtn" type="submit" value="Submit">
+                            <button id="cancelBtn">Cancel</button>
+                        </div>
+                        <input id="deleteBtn" type="submit" value="Delete">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

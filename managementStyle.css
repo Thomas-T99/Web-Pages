@@ -1,0 +1,124 @@
+.map {
+    width: 820px;   
+    height: 400px; 
+}
+
+#header-bar, .search-container, .filter-buttons {
+    display: flex;
+    flex-direction: row;
+
+}
+  
+  
+
+.filter-buttons {
+    gap: 10px;
+}
+
+#header-bar {
+    justify-content: space-between;
+}
+
+#plugin {
+    width: 820px; 
+}
+
+#search-container {
+  	padding-bottom: 10px;
+}
+  
+  #addition-container {
+    padding-top: 10px;
+}
+
+.leaflet-control-container {
+    display: flex !important;
+    flex-direction: row !important;
+    height: 100% !important;
+}
+
+#sidebar {
+    padding: 20px;
+}
+
+.close {
+    text-decoration: none !important;
+}
+
+.leaflet-bottom {
+    display: none;
+}
+
+#management-plugin {
+    display: flex;
+    flex-direction: row;
+  	height: 100vh;
+}
+
+#management-plugin > div {
+    margin: 1%;
+}
+
+#control-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+  	background-color: #E97B29;
+  	flex-grow: 1;
+  	padding: 10px;
+}
+
+#form-div {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 10px;
+  padding-inline: 20px;
+}
+#descriptionfield {
+  width: 100%;
+  height: 20%;
+  }
+#selection-container {
+    flex-grow: 1;
+    width: 100%;
+    overflow-y: scroll;
+}
+
+  .locationdiv{
+   border-bottom: 1px solid black;
+   padding: 5px;
+  }
+  
+  .locationdiv:hover {
+    background-color: #bc3b3b;
+    color: white;
+  }
+  
+  .container  {
+  padding: 0px !important;
+  margin: 0px auto;
+  display: contents;
+  padding-bottom: 0px !important;
+  padding-top: 0px !important;
+  }
+  
+  #buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .left-buttons {
+      display: flex;
+      gap: 20px;
+  }
+  
+  form {
+    display: none;
+}
+  .locationtitle {
+    line-height: 1.3em;
+    font-weight: bold;
+}
